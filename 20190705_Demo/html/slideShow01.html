@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自动呼吸轮播图</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    .banner {
+      margin: 50px auto;
+      width: 1260px;
+      height: 460px;
+      position: relative;
+    }
+
+    .banner .img-ul .img-item {
+      position: absolute;
+      display: none;
+    }
+
+    .banner .img-ul .img-item img {
+      width: 1260px;
+      height: 460px;
+    }
+
+    .banner .btn-tab {
+      width: 54px;
+      height: 90px;
+      position: absolute;
+      top: 50%;
+      margin-top: -45px;
+      cursor: pointer;
+      color: orange;
+      text-align: center;
+      line-height: 90px;
+      background-color: #eee;
+      opacity: 0.3;
+    }
+
+    .banner .btn-tab:hover {
+      background-color: #5C6E79;
+      opacity: 1;
+    }
+
+    .banner .tab-left {
+      left: 0;
+    }
+
+    .banner .tab-right {
+      right: 0;
+    }
+
+    .banner .btn-list {
+      width: 100px;
+      height: 15px;
+      position: absolute;
+      right: 30px;
+      bottom: 30px;
+    }
+
+    .banner .btn-list .btn-item {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 2px solid #ABACB4;
+      background-color: #828691;
+      float: left;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    .banner .btn-list .btn-item:hover {
+      background-color: #E7EBF8;
+    }
+
+    .banner .btn-list .active {
+      background-color: #E7EBF8;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="banner">
+    <ul class="img-ul">
+      <li class="img-item" style="display: block">
+        <img src="../images/mi-1.jpg" alt="">
+      </li>
+      <li class="img-item">
+        <img src="../images/mi-2.jpg" alt="">
+      </li>
+      <li class="img-item">
+        <img src="../images/mi-3.jpg" alt="">
+      </li>
+      <li class="img-item">
+        <img src="../images/mi-4.jpg" alt="">
+      </li>
+      <li class="img-item">
+        <img src="../images/mi-5.jpg" alt="">
+      </li>
+    </ul>
+    <div class="btn-tab tab-left">
+      <-</div> <div class="btn-tab tab-right">->
+    </div>
+    <div class="btn-list">
+      <ul class="btn-ul">
+        <li class="btn-item active"></li>
+        <li class="btn-item"></li>
+        <li class="btn-item"></li>
+        <li class="btn-item"></li>
+        <li class="btn-item"></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <script src="../js/jquery-3.4.1.js"></script>
+  <script>
+    $(function () {
+
+      var index = 0;
+
+      // 小圆点点击事件
+      $(".btn-item").click(function () {
+        index = $(this).index(); //获取点击li的下标
+        console.log(index);
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".img-item").eq(index).fadeIn().siblings().fadeOut();
+      });
+
+      // 左侧按钮点击事件
+      $(".tab-left").click(function () {
+        index--;
+        if (index < 0) {
+          index = 4;
+        }
+        // console.log(index);
+        $(".btn-item").eq(index).addClass("active").siblings().removeClass("active");
+        $(".img-item").eq(index).fadeIn().siblings().fadeOut();
+      })
+
+      // 右侧按钮点击事件
+      $(".tab-right").click(function () {
+        index++;
+        if (index > 4) {
+          index = 0;
+        }
+        // console.log(index);
+        $(".btn-item").eq(index).addClass("active").siblings().removeClass("active");
+        $(".img-item").eq(index).fadeIn().siblings().fadeOut();
+      });
+
+
+      // 自动轮播事件
+      var auto = setInterval(function () {
+        autoChange();
+      }, 5000);
+
+      function autoChange() {
+        var autoIndex = 0;
+        autoIndex = $(".active").index();
+
+        autoIndex++;
+        if (autoIndex > 4) {
+          autoIndex = 0;
+        }
+        // console.log(autoIndex)
+        $(".img-item").eq(autoIndex).fadeIn().siblings().fadeOut();
+        $(".btn-item").eq(autoIndex).addClass("active").siblings().removeClass("active");
+      }
+
+      // 鼠标移入或移出，停止或继续执行自动轮播事件
+      $(".banner").mouseover(function () {
+        clearInterval(auto);
+
+      }).mouseout(function () {
+        auto = setInterval(function () {
+          autoChange();
+        }, 5000)
+
+      });
+
+
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹性布局：dice01</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #d7d7d7;
+            background-color: #e7e7e7;
+            border-radius: 10px;
+            /* 弹性容器 */
+            display: flex;
+            /* 主轴中心 */
+            /* justify-content: center;  */
+            /* 主轴靠右 */
+            /* justify-content: flex-end; */
+            /* 主轴交叉轴的中心 */
+            /* justify-content: center;
+            align-items: center; */
+            /* 主轴中心，交叉轴靠下 */
+            /* justify-content: center;
+            align-items: flex-end; */
+            /* 主轴靠右，交叉轴靠下 */
+            /* justify-content: flex-end;
+            align-items: flex-end; */
+
+
+            /* 弹性容器的六大属性:
+                flex-direction：设置主轴方向
+                flex-wrap：设置换行规则
+                justify-content：设置元素在主轴上的对齐方式
+                align-items：设置交叉轴对齐方式，垂直对齐方式
+                align-content：当有多行是设置他们垂直排列方式 
+            */
+
+        }
+
+        .item {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #555555;
+            background-color: #333333;
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="item"></div>
+    </div>
+
+</body>
+
+</html>

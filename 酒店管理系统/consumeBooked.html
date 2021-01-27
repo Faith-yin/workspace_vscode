@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>酒店客房管理系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/font.css">
+  <link rel="stylesheet" href="./css/xadmin.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+  <script src="./lib/layui/layui.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./js/xadmin.js"></script>
+
+</head>
+
+<body>
+  <!-- 顶部开始 -->
+  <div class="container">
+    <div class="logo">酒店客房管理系统 1.0</div>
+    <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
+    <ul class="layui-nav right" lay-filter="">
+      <li class="layui-nav-item">
+        <a href="javascript:;">admin</a>
+        <dl class="layui-nav-child">
+          <!-- 二级菜单 -->
+          <dd><a href="./login.html">退出</a></dd>
+        </dl>
+      </li>
+    </ul>
+  </div>
+  <!-- 顶部结束 -->
+
+
+  <!-- 中部开始 -->
+  <div class="wrapper">
+
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+      <div id="side-nav">
+        <ul id="nav">
+          <li class="list" current>
+            <a href="index.html">
+              <i class="iconfont">&#xe761;</i>
+              欢迎页面
+            </a>
+          </li>
+
+
+          <li class="list">
+            <a href="roomList.html">
+              <i class="iconfont">&#xe6a3;</i>
+              客房管理
+            </a>
+          </li>
+
+
+          <li class="list">
+            <a href="javascript:;">
+              <i class="iconfont">&#xe6a3;</i>
+              基础信息管理
+              <i class="iconfont nav_right">&#xe697;</i>
+            </a>
+            <ul class="sub-menu" style="display:none">
+              <li>
+                <a href="memberList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  会员管理
+                </a>
+              </li>
+              <li>
+                <a href="floorList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  楼层管理
+                </a>
+              </li>
+              <li>
+                <a href="roomTypeList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  客房类型管理
+                </a>
+              </li>
+              <li>
+                <a href="goodsTypeList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  商品类别管理
+                </a>
+              </li>
+              <li>
+                <a href="goodsList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  商品管理
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+
+
+          <li class="list">
+            <a href="javascript:;">
+              <i class="iconfont">&#xe6a3;</i>
+              房客管理
+              <i class="iconfont nav_right">&#xe697;</i>
+            </a>
+            <ul class="sub-menu" style="display:none">
+              <li>
+                <a href="reserve.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  客房预订管理
+                </a>
+              </li>
+              <li>
+                <a href="checkinList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  入住登记管理
+                </a>
+              </li>
+              <li>
+                <a href="roomList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  预订转入住
+                </a>
+              </li>
+              <li>
+                <a href="roomChangeList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  换房管理
+                </a>
+              </li>
+              <li>
+                <a href="accountsSettleList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  结账管理
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+          <li class="list">
+            <a href="javascript:;">
+              <i class="iconfont">&#xe6a3;</i>
+              消费管理
+              <!-- 附加消费入账 -->
+              <i class="iconfont nav_right">&#xe697;</i>
+            </a>
+            <ul class="sub-menu opened">
+              <li style="background-color: rgb(105, 81, 81)">
+                <a href="consumeBooked.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  消费入账
+                </a>
+              </li>
+              <li>
+                <a href="consumeBookedList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  打印账单
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="list">
+            <a href="javascript:;">
+              <i class="iconfont">&#xe6a3;</i>
+              报表管理
+              <i class="iconfont nav_right">&#xe697;</i>
+            </a>
+            <ul class="sub-menu" style="display:none">
+              <li>
+                <a href="predetermineList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  预定客人报表
+                </a>
+              </li>
+              <li>
+                <a href="liveList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  在住客人列表
+                </a>
+              </li>
+              <li>
+                <a href="leaveList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  离店客人报表
+                </a>
+              </li>
+              <li>
+                <a href="financeList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  财务进账报表
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+          <li class="list">
+            <a href="javascript:;">
+              <i class="iconfont">&#xe6a3;</i>
+              系统管理
+              <i class="iconfont nav_right">&#xe697;</i>
+            </a>
+            <ul class="sub-menu" style="display:none">
+              <li>
+                <a href="userList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  用户管理
+                </a>
+              </li>
+              <li>
+                <a href="logList.html">
+                  <i class="iconfont">&#xe6a7;</i>
+                  日志管理
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+        </ul>
+        </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+      <div class="content">
+        <form class="layui-form">
+          <div class="layui-form-item">
+            <label for="level-name" class="layui-form-label">
+              <span class="x-red">*</span>入住单号
+            </label>
+            <label class="layui-form-mid">
+              1001
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="level-kiss" class="layui-form-label">
+              <span class="x-red">*</span>客房编号
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="g_name" name="g_name" required="" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              <span class="x-red">*</span>商品名
+            </label>
+            <div class="layui-input-inline">
+              <select>
+                <option>可口可乐</option>
+                <option>雪碧</option>
+                <option>芬达</option>
+                <option>农夫山泉</option>
+              </select>
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              <span class="x-red">*</span>数量
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="g_name" name="g_name" required="" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              <span class="x-red">*</span>单价
+            </label>
+            <label class="layui-form-mid">
+              10
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              <span class="x-red">*</span>消费金额
+            </label>
+            <label class="layui-form-mid">
+              30
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              <span class="x-red">*</span>折扣率
+            </label>
+            <label class="layui-form-mid">
+              0
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              <span class="x-red">*</span>折后金额
+            </label>
+            <label class="layui-form-mid">
+              30
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              <span class="x-red">*</span>合计
+            </label>
+            <label class="layui-form-mid">
+              30
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              操作员
+            </label>
+            <label class="layui-form-mid">
+              admin
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              消费时间
+            </label>
+            <div class="layui-input-inline">
+              <input type="date" id="g_name" name="g_name" lay-verify="nikename" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+              备注
+            </label>
+            <div class="layui-input-inline">
+              <textarea class="layui-input" style="resize:none; width: 400px;height: 100px;"></textarea>
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-filter="save" lay-submit="">
+              保存
+            </button>
+          </div>
+        </form>
+
+
+        <!-- 右侧内容框架，更改从这里结束 -->
+      </div>
+    </div>
+    <!-- 右侧主体结束 -->
+  </div>
+  <!-- 中部结束 -->
+
+
+  <!-- 底部开始 -->
+  <div class="footer">
+    <div class="copyright">本后台系统由张瑨、殷鹏飞、史哲月、王伟杰、张佳琳联合创作！</div>
+  </div>
+  <!-- 底部结束 -->
+
+</body>
+
+</html>

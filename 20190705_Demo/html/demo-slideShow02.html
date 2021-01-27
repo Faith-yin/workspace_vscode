@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网站轮播代码02：自动滑动轮播图</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        #wrapper {
+            margin: 0px auto;
+        }
+
+        #show-area {
+            /*width 和 height 其实就是图片的高和宽*/
+            width: 800px;
+            height: 450px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #show-area ul {
+            position: relative;
+            width: 3200px;
+        }
+
+        #show-area ul li {
+            width: 800px;
+            height: 450px;
+            float: left;
+        }
+
+        #show-area ul li a img {
+            width: 800px;
+            height: 450px;
+        }
+
+        #controler {
+            width: 150px;
+            height: 20px;
+            position: absolute;
+            left: 969px;
+            top: 530px;
+        }
+
+        #controler div {
+            width: 15px;
+            height: 15px;
+            margin-left: .5em;
+            float: left;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+        }
+
+        #controler div:hover {
+            background-color: #fff;
+        }
+
+        .onclick {
+            /*在切换时我们利用添加一个类的方法去改变按钮的背景颜色而，因为按钮初始状态下是用id 选择器设定背景颜色的，所以这里加上一个important*/
+            background: #fff !important;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="show-area">
+            <ul>
+                <li id="first"><a href="#"><img src="../images/mi-1.jpg"></a></li>
+                <li><a href="#"><img src="../images/mi-2.jpg"></a></li>
+                <li><a href="#"><img src="../images/mi-3.jpg"></a></li>
+                <li><a href="#"><img src="../images/mi-4.jpg"></a></li>
+            </ul>
+        </div>
+        <div id="controler">
+
+        </div>
+    </div>
+    <div id="see"></div>
+
+
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            var currentIndex = 0;
+            //获取总共li的的个数：4
+            var imgtotal = $("#show-area ul li").length;
+            var autoPlayIndex = 0;
+            //获取第一个li的宽度用作动画切换效果：800px
+            var imgwidth = $("#show-area ul li").width();
+
+
+            //通过循环更具图片数量自动添加控制按钮方便以后后台上传图片所用
+            for (var i = 0; i < imgtotal; i++) { 
+
+                $("#controler").append("<div>" + "</div>");
+            };
+
+
+            $("#controler div").eq(0).addClass("onclick");
+
+            $("#controler div").each(function () {
+                $(this).click(function () {
+                    //为模拟点击索引值赋值
+                    autoPlayIndex = $(this).index();
+                    Change(this);
+                });
+            });
+            function Change(obj) {
+
+                //将点击圆点的索引赋值给currentIndex
+                currentIndex = $(obj).index();
+
+                //点击小圆点切换图片部分；当我按第一个按钮的时候它的左属性是没有变化的，而当我按第二个按钮的时候（第二个按钮的索引值是1）ul的left属性就会减少第1个图片的宽度也就是向左面缩800px，这样第二张图片就显示出来啦，之后的也是如此，这就是为什么要设置ul属性为relative的意义，并且ul里面的li也要设置为左浮动这样才会有效果
+                $("#show-area ul").animate({ left: -currentIndex * imgwidth }, 800);
+                $("#controler div").eq(currentIndex).addClass("onclick").siblings().removeClass("onclick");
+            }
+
+
+            //自动轮播事件
+            var auto = setInterval(function () {
+                autochange();
+            }, 6000);
+
+            function autochange() {
+                autoPlayIndex = (autoPlayIndex + 1) % imgtotal;
+                $("#controler div").eq(autoPlayIndex).trigger("click");
+            };
+
+
+            // 鼠标移入或移出，停止或继续执行自动轮播事件
+            $("#show-area li,#controler div").mouseover(function () {
+                clearInterval(auto);
+
+            }).mouseout(function () {
+                auto = setInterval(function () {
+                    autochange();
+                }, 6000)
+
+            });
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

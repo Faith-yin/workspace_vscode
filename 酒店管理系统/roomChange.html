@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>酒店客房管理系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/font.css">
+  <link rel="stylesheet" href="./css/xadmin.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+  <script src="./lib/layui/layui.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./js/xadmin.js"></script>
+
+</head>
+
+<body>
+
+
+  <!-- 中部开始 -->
+  <div class="wrapper">
+
+
+
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+      <div class="content">
+        <!-- 右侧内容框架，更改从这里开始 -->
+        <form class="layui-form">
+
+
+
+
+          <div class="layui-form-item">
+            <label for="L_email" class="layui-form-label">
+              <span class="x-red">*</span>入住单号
+            </label>
+            <label class="layui-form-mid">
+              1001
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red">*</span>原客房编号
+            </label>
+            <label class="layui-form-mid">
+              101
+            </label>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="" class="layui-form-label">
+              <span class="x-red">*</span>现客房编号
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="L_username" name="username" required="" lay-verify="number" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>客房类型
+            </label>
+            <label class="layui-form-mid">
+              单人间
+            </label>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>标准价
+            </label>
+            <label class="layui-form-mid">
+              100
+            </label>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>折后价
+            </label>
+            <label class="layui-form-mid">
+              100
+            </label>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>押金
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="L_username" name="username" required="" lay-verify="number" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>入住人
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="L_username" name="username" required="" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>证件类型
+            </label>
+            <div class="layui-input-inline">
+              <select>
+                <option>中华人民共和国居民身份证</option>
+                <option>台湾居民往来大陆通行证</option>
+                <option>港澳居民来往内地通行证</option>
+                <option>护照</option>
+                <option>香港身份证</option>
+                <option>澳门身份证</option>
+              </select>
+            </div>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>证件号码
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="L_username" name="username" required="" lay-verify="identity" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>联系电话
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="L_username" name="username" required="" lay-verify="number" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>抵店时间
+            </label>
+            <div class="layui-input-inline">
+              <input type="date" id="L_username" name="username" required="" lay-verify="data" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>离店时间
+            </label>
+            <div class="layui-input-inline">
+              <input type="date" id="L_username" name="username" required="" lay-verify="data" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>入住人数
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="L_username" name="username" required="" lay-verify="number" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>操作员
+            </label>
+            <label class="layui-form-mid">
+              admin
+            </label>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>会员编号
+            </label>
+            <label class="layui-form-mid">
+              1001
+            </label>
+          </div>
+
+
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              <span class="x-red">*</span>会员价
+            </label>
+            <label class="layui-form-mid">
+              100
+            </label>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_city" class="layui-form-label">
+              提供早餐
+            </label>
+            <div class="layui-input-inline">
+              <input type="radio" name="3" value="0" checked title="是">
+              <input type="radio" name="3" value="1" title="否">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_city" class="layui-form-label">
+              定时叫醒
+            </label>
+            <div class="layui-input-inline">
+              <input type="radio" name="4" value="0" checked title="是">
+              <input type="radio" name="4" value="1" title="否">
+            </div>
+          </div>
+
+          <div class="layui-form-item layui-form-text">
+            <label for="L_sign" class="layui-form-label">
+              备注
+            </label>
+            <div class="layui-input-inline">
+              <textarea class="layui-input" style="resize:none; width: 400px;height: 100px;"></textarea>
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_sign" class="layui-form-label">
+            </label>
+            <button class="layui-btn" key="set-mine" lay-filter="save" lay-submit>
+              保存
+            </button>
+          </div>
+        </form>
+        <!-- 右侧内容框架，更改从这里结束 -->
+      </div>
+    </div>
+    <!-- 右侧主体结束 -->
+  </div>
+  <!-- 中部结束 -->
+
+
+
+</body>
+
+</html>

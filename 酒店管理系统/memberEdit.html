@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>酒店客房管理系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/font.css">
+  <link rel="stylesheet" href="./css/xadmin.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+  <script src="./lib/layui/layui.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./js/xadmin.js"></script>
+
+</head>
+
+<body>
+  <!-- 中部开始 -->
+  <div class="wrapper">
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+      <div class="content">
+        <!-- 右侧内容框架，更改从这里开始 -->
+        <form class="layui-form">
+          <div class="layui-form-item">
+            <label for="L_email" class="layui-form-label">
+              <span class="x-red">*</span>会员编号
+            </label>
+            <label class="layui-form-mid">
+              1001
+            </label>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red">*</span>姓名
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="v_name" name="v_name" required="" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red">*</span>性别
+            </label>
+            <div class="layui-input-inline">
+              <input type="radio" name="sex" value="0" checked title="男">
+              <input type="radio" name="sex" value="1" title="女">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red">*</span>密码
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="password" name="password" required="" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red">*</span>电话
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="telephone" name="telephone" required="" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red"></span>地址
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="address" name="address" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red"></span>邮箱
+            </label>
+            <div class="layui-input-inline">
+              <input type="text" id="Email" name="Email" lay-verify="nikename" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red"></span>积分
+            </label>
+            <label class="layui-form-mid">
+              10
+            </label>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red"></span>级别
+            </label>
+            <div class="layui-input-inline">
+              <label class="layui-form-mid">
+                普通
+              </label>
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red"></span>最后一次入住时间
+            </label>
+            <div class="layui-input-inline">
+              <input type="date" id="l_checkintime" name="l_checkintime" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+              <span class="x-red"></span>最后一次预定信息
+            </label>
+            <div class="layui-input-inline">
+              <input type="date" id="l_ordertime" name="l_ordertime" lay-verify="nikename" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_pass" class="layui-form-label">
+              备注
+            </label>
+            <div class="layui-input-inline">
+              <textarea class="layui-input" style="resize:none; width: 400px;height: 100px;"></textarea>
+            </div>
+
+          </div>
+
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-filter="add" lay-submit="">
+              保存
+            </button>
+          </div>
+        </form>
+        <!-- 右侧内容框架，更改从这里结束 -->
+      </div>
+    </div>
+    <!-- 右侧主体结束 -->
+  </div>
+  <!-- 中部结束 -->
+
+</body>
+
+</html>

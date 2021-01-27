@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>三级菜单</title>
+    <style type="text/css">
+        #menu li {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+
+        #menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        #menu .mg {
+            width: 20px;
+            height: 20px;
+            margin-left: -26px;
+            text-align: center;
+            line-height: 20px;
+            display: inline-block;
+        }
+
+        #menu .mg:hover {
+            cursor: default;
+        }
+
+        #menu .on {
+            transform: rotate(90deg);
+        }
+
+        #menu>ul ul {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <ul>
+            <li>
+                <a href="">菜单 1</a>
+            </li>
+            <li>
+                <span class="mg">＞</span>
+                <a href="">菜单 2</a>
+                <ul>
+                    <li>
+                        <span class="mg">＞</span>
+                        <a href="">菜单 2-1</a>
+                        <ul>
+                            <li><a href="">菜单 2-1-1</a></li>
+                            <li><a href="">菜单 2-1-2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">菜单 2-2</a></li>
+                    <li><a href="">菜单 2-3</a></li>
+                </ul>
+            </li>
+            <li>
+                <span class=" mg">＞</span>
+                <a href="">菜单 3</a>
+                <ul>
+                    <li><a href="">菜单 3-1</a></li>
+                    <li><a href="">菜单 3-2</a></li>
+                    <li><a href="">菜单 3-3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">菜单 4</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            
+            $(".mg").click(function() {
+                // 1. toggleClass() 方法对添加和移除被选元素的一个或多个类进行切换:
+                // 该方法检查每个元素中指定的类。如果不存在则添加类，如果已设置则删除之。这就是所谓的切换效果。
+
+                // 2. next() - 返回被选元素的后一个同级元素;
+                // nextAll() - 返回被选元素之后的所有同级元素;
+                // nextUntil() - 返回两个给定参数之间的每个元素之后的所有同级元素;
+
+                // 3. toggle() 方法在被选元素上进行 hide() 和 show() 之间的切换:
+                // 该方法检查被选元素的可见状态。如果一个元素是隐藏的，则运行 show()，如果一个元素是可见的，则运行 hide() - 这会造成一种切换的效果。
+
+                $(this).toggleClass("on").next().next().toggle();
+            });
+        });
+    </script>
+</body>
+
+</html>

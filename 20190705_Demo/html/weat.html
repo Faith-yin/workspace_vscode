@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>weat</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .main {
+            width: 1796px;
+            height: 730px;
+            margin: 0 auto;
+            background-image: url('../images/pic.png');
+            overflow: hidden;
+        }
+
+        .content-wrapper {
+            width: 900px;
+            height: 240px;
+            margin: 340px auto 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .wk {
+            width: 200px;
+            height: 180px;
+            background-image: url('../images/west_01_3ca39fe.png');
+            animation: wkMove 1s steps(8) infinite both;
+        }
+
+        .bj {
+            width: 200px;
+            height: 180px;
+            background-image: url('../images/west_02_47bad19.png');
+            animation: wkMove 1s steps(8) infinite both;
+        }
+
+        .ts {
+            width: 170px;
+            height: 240px;
+            background-image: url('../images/west_03_f962447.png');
+            animation: tsMove 1s steps(8) infinite both;
+        }
+
+        .ss {
+            width: 210px;
+            height: 200px;
+            background-image: url('../images/west_04_6516d80.png');
+            animation: ssMove 1s steps(8) infinite both;
+        }
+
+        @keyframes wkMove {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -1600px 0;
+            }
+        }
+
+        @keyframes tsMove {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -1360px 0;
+            }
+        }
+
+        @keyframes ssMove {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -1680px 0;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="main">
+        <div class="content-wrapper">
+            <div class="wk"></div>
+            <div class="bj"></div>
+            <div class="ts"></div>
+            <div class="ss"></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

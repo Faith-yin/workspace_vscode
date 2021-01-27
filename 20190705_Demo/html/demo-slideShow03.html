@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网站轮播代码03：自动滑动轮播无缝切换</title>
+    <style>
+        * {
+            margin: e;
+            padding: 0;
+        }
+
+        /*一副图片的宽度*/
+        #mbb {
+            width: 952px;
+            height: 440px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #mbb .con {
+            width: 5712px;
+            height: 440px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #mbb .con img {
+            float: left;
+            width: 952px;
+            height: 440px;
+        }
+
+        #mbb ul {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        #mbb ul li {
+            list-style: none;
+            float: left;
+            width: 116px;
+            height: 29px;
+            background-color: #000;
+            opacity: 0.4;
+            line-height: 29px;
+            text-align: center;
+            font-size: 12px;
+            font-family: '宋体';
+            color: #fff;
+            margin-left: 1px;
+        }
+
+        #mbb ul li:hover {
+            cursor: pointer;
+            color: orange;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="mbb">
+        <div class="con">
+            <img src="../images/mi-1.jpg" alt="" />
+            <img src="../images/mi-2.jpg" alt="" />
+            <img src="../images/mi-3.jpg" alt="" />
+            <img src="../images/mi-4.jpg" alt="" />
+            <img src="../images/mi-5.jpg" alt="" />
+            <!--实现无缝-->
+            <img src="../images/mi-1.jpg" alt="" />
+        </div>
+        <ul>
+            <li style="opacity: 0.7">一抹浪漫</li>
+            <li>热情美式</li>
+            <li>像素小怪兽</li>
+            <li>麋鹿物语</li>
+            <li>乖巧小时髦</li>
+        </ul>
+    </div>
+
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function() {
+            //大总管全局变量
+            var c = 0;
+            //自动轮播
+            var timer = setInterval(run, 2000);
+            var t;
+
+            $("#mbb ul li").click(function() {
+                //清理计时器
+                clearTimeout(t);
+                clearInterval(timer);
+
+                //防止过快点击，400ms后再执行间歇调用
+                t = setTimeout(function() {
+                    timer = setInterval(run, 2000);
+                }, 400);
+
+                //获得当前被点击的li的索引
+                c = $(this).index();
+                //计算大div应该到达的left值
+                var l = c * -952;
+                console.log(l);
+                
+                $(this).css("opacity", "0.7").siblings("li").css("opacity", "0.4");
+                //大div开始运动
+                $(".con").stop().animate({"left":l + "px"}, 300);
+            });
+
+            //控制自动轮播的函数
+            function run() {
+                c ++;
+                if(c > 5) {
+                    $("#mbb .con").css({"left": 0});
+                    c = 1;
+                }
+
+                var l = c * -952;
+                $("#mbb .con").stop().animate({"left": l + "px"},400);
+
+                //因为索引是从0开始的，5就是最后一张(即重复的第一张)
+                if(c == 5) {
+                    $("#mbb ul li").eq(0).css("opacity","0.7").siblings("li").css("opacity","0.4");
+                }else {
+                    $("#mbb ul li").eq(c).css("opacity","0.7").siblings("li").css("opacity","0.4");
+                }
+            }
+
+        });
+        
+    </script>
+</body>
+
+</html>

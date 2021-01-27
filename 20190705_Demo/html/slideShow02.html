@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手动点击滑动轮播，末尾点击无效</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .banner {
+            margin: 50px auto;
+            width: 1226px;
+            height: 460px;
+            position: relative;
+            border: 2px solid rgb(230, 82, 82);
+            overflow: hidden;
+        }
+
+        .banner .img-ul {
+            width: 6300px;
+            height: 460px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .banner .img-ul .img-item {
+            float: left;
+        }
+
+        .banner .img-ul .img-item img {
+            width: 1226px;
+            height: 460px;
+        }
+
+        .banner .btn-tab {
+            width: 54px;
+            height: 90px;
+            position: absolute;
+            top: 50%;
+            margin-top: -45px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 90px;
+            background-color: #eee;
+            opacity: 1;
+        }
+
+        .banner .btn-tab:hover {
+            background-color: #5C6E79;
+        }
+
+        .banner .tab-left {
+            left: 0;
+        }
+
+        .banner .tab-right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <ul class="img-ul">
+            <li class="img-item">
+                <img src="../images/mi-1.jpg" alt="" />
+            </li>
+            <li class="img-item">
+                <img src="../images/mi-2.jpg" alt="" />
+            </li>
+            <li class="img-item">
+                <img src="../images/mi-3.jpg" alt="" />
+            </li>
+            <li class="img-item">
+                <img src="../images/mi-4.jpg" alt="" />
+            </li>
+            <li class="img-item">
+                <img src="../images/mi-5.jpg" alt="" />
+            </li>
+        </ul>
+        <div class="btn-tab tab-left"><-</div>
+        <div class="btn-tab tab-right">-></div>
+    </div>
+
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $(function() {
+            
+            var num = 0;
+
+            $(".tab-right").click(function() { 
+
+                num ++;
+
+                if(num > -1 && num < 5) {
+                    var lengthRight = num * -1226;
+                    $(".img-ul").animate({"left": lengthRight + "px"}, 300);
+                }else {
+                    num = 4;
+                    window.confirm("已经是末尾啦！");
+                    $(".tab-right").attr("disabled", true);
+                }
+            });
+
+
+            $(".tab-left").click(function() {
+                
+                num --;
+
+                if(num > -1 && num < 5) {
+                    var lengthLeft = num * -1226;
+                    $(".img-ul").animate({"left": lengthLeft + "px"}, 300);
+                }else {
+                    num = 0;
+                    window.confirm("已经是起始啦！");
+                    $(".tab-left").attr("disabled", true);
+                }
+
+            });
+
+
+
+        });
+        
+    </script>
+</body>
+
+</html>
